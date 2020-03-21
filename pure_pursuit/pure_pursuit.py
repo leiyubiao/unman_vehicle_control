@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 
 K = 0.1 #前视距离系数
-Lfc = 2.0 #前视距离
+Lfc = 2.0 #前视距离,调速K和Lfc，将决定算法的跟踪算法。如果Lfc变大，则跟踪会变得更平顺，如果变小则跟踪会更精确。
 Kp = 1.0 #速度P控制器系数
 dt = 0.1 #时间间隔，单件 s
 L = 2.9 #车辆轴距，单位：m
