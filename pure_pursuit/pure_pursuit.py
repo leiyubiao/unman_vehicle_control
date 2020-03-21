@@ -20,8 +20,8 @@ def update(state,a,delta): # update the state of car
     
     state.x = state.x +state.v*math.cos(state.yaw)*dt
     state.y = state.y + state.v*math.sin(state.yaw)*dt
-    state.yaw = state.yaw +  math.tan(delta)*state.v / L * dt # the rate of yaw: dot(yaw) = v*tan(delta_f)/L;  the delta is chaing, 
-                                                              # so the position is chaging.
+    state.yaw = state.yaw +  math.tan(delta)*state.v / L * dt # the rate of yaw: dot(yaw) = v_r*tan(delta_f)/L;  the delta is chaing, 
+                                                              # so the position is chaging. while dot(yaw)=v_f*sin(delta_f)/L
     state.v = state.v + a * dt # PID controller 
     return state
 
