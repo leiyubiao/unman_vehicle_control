@@ -57,16 +57,17 @@ def pure_pursuit_control(state, cx, cy, pind):
         ty = cy[ind]
     else:
         tx = cx[-1]
-        ty = cy[-1] # endif to get the tx and ty4
+        ty = cy[-1] # endif to get the tx and ty
 
     alpha = math.atan2(ty-state.y,tx-state.x) - state.yaw
 
     if state.v < 0:
-        alpha = math.pi - alpha
+        alpha = math.pi - alpha #倒车过程时，
     
     Lf = K * state.v + Lfc
 
-    delta = math.atan2(2.0*L*math.sin(alpha)/Lf, 1.0) # the output: delta_f, the angle of front wheels.
+    delta = math.atan2(2.0*L*math.sin(alpha)/Lf, 1.0) # the output: delta_f, the angle of front wheels.算出来的前轮转角，相对于车辆方向
+    #而言，是“左正右负”。
 
     return delta, ind
 
